@@ -31,9 +31,17 @@ Cart.prototype.saveToLocalStorage = function() {
   localStorage.setItem("cart", cartString)
 };
 
-Cart.prototype.removeItem = function(item) {
+Cart.prototype.removeItem = function(productName) {
   // TODO: Fill in this instance method to remove one item from the cart.
   // Note: You will have to decide what kind of parameter to pass in here!
+  this.items = this.items.filter(function(currentItem){
+    if(currentItem.product.name ==productName ){
+      return false
+    }else{
+      return true
+    }
+  })
+  console.log(this.items)
 };
 
 Cart.prototype.updateCounter = function() {
